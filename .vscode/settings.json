@@ -1,9 +1,10 @@
 {
-  "cSpell.words": ["Clsx", "Nightwatch", "Tailwindcss", "Tsbuildinfo", "Vetur"],
+  "cSpell.words": ["Clsx", "Nightwatch", "rushstack", "Tailwindcss", "Tsbuildinfo", "Vetur"],
   "css.customData": [".vscode/tailwind.json"],
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
