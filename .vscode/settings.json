@@ -1,8 +1,9 @@
 {
+  "cSpell.words": ["Clsx", "Nightwatch", "Tailwindcss", "Tsbuildinfo", "Vetur"],
+  "css.customData": [".vscode/tailwind.json"],
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["nightwatch", "tailwindcss", "tsbuildinfo"]
+  "editor.formatOnSave": true
 }
