@@ -22,7 +22,7 @@ const getTimeAgo = (pubDate: string) => useTimeAgo(pubDate).value;
 </script>
 
 <template>
-  <button @click="$emit('openPost', post)">
+  <button @click="$emit('openPost', post)" class="text-left">
     <Card class="overflow-clip">
       <CardContent class="p-0"><img :src="post.image?.src" :alt="post.image?.alt" /></CardContent>
       <CardHeader class="p-4">
