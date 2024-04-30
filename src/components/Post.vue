@@ -1,15 +1,30 @@
 <script setup lang="ts">
 import Breadcrumb from '@/components/Breadcrumb.vue';
+import PostParser from '@/components/PostParser.vue';
 import type { Post } from '@/composables/useGetPosts';
+import { onMounted, toRefs, ref } from 'vue';
+import { useGetPostNodes } from '@/composables/useGetPostNodes';
 
-defineProps<{
+const props = defineProps<{
   post: Post;
 }>();
+const { post } = toRefs(props);
+const nodes = ref<ChildNode[]>();
+
+onMounted(async () => {
+  nodes.value = await useGetPostNodes(post.value);
+});
 </script>
 
 <template>
   <div class="flex w-full flex-col gap-2 md:max-w-screen-md">
     <Breadcrumb class="pb-10" />
-    <h1 class="text-balance text-center text-4xl">{{ post.title }}</h1>
+    <article class="flex flex-col gap-2">
+      <h1 class="text-balance text-center text-4xl">{{ post.title }}</h1>
+      <img :src="post.image?.src" :alt="post.image?.alt" />
+      <div class="flex flex-col">
+        <PostParser v-for="(node, index) in nodes" :node :key="index" />
+      </div>
+    </article>
   </div>
 </template>

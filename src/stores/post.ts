@@ -27,8 +27,6 @@ export const usePostStore = defineStore('postStore', () => {
     postList.forEach((post) => {
       posts.value.add(post);
     });
-
-    console.log(postList);
   }
 
   return { post, posts, isPostOpen, closePost, openPost, getPosts };
