@@ -14,14 +14,18 @@
   },
   "dependencies": {
     "@radix-icons/vue": "^1.0.0",
+    "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "radix-vue": "^1.7.3",
+    "rss-parser": "^3.13.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.26"
   },
   "devDependencies": {
+    "@egoist/tailwindcss-icons": "^1.7.4",
+    "@iconify-json/heroicons": "^1.1.21",
     "@rushstack/eslint-patch": "^1.10.2",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.12.7",

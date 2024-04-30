@@ -1,4 +1,5 @@
-const animate = require('tailwindcss-animate')
+const animate = require('tailwindcss-animate');
+const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -90,5 +91,10 @@ module.exports = {
       }
     }
   },
-  plugins: [animate]
-}
+  plugins: [
+    animate,
+    iconsPlugin({
+      collections: getIconCollections(['heroicons'])
+    })
+  ]
+};
