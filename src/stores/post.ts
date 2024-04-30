@@ -14,7 +14,7 @@ export const usePostStore = defineStore('postStore', () => {
   const nodes = ref<ChildNode[]>();
 
   // Getters
-  const isPostOpen = computed(() => params.postId);
+  const isPostOpen = computed(() => !!params.postId);
   const post = computed(() => {
     if (!params.postId) return;
     const postId = atob(params.postId);
