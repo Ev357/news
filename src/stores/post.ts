@@ -25,7 +25,7 @@ export const usePostStore = defineStore('postStore', () => {
   function closePost() {
     params.postId = undefined;
   }
-   function openPost(postItem: Post) {
+  function openPost(postItem: Post) {
     params.postId = btoa(postItem.id);
   }
   async function getPosts() {
