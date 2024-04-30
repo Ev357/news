@@ -6,7 +6,7 @@ import { usePostStore } from '@/stores/post';
 import { storeToRefs } from 'pinia';
 import { onMounted } from 'vue';
 
-const { isPostOpen } = storeToRefs(usePostStore());
+const { isPostOpen, post } = storeToRefs(usePostStore());
 const { getPosts } = usePostStore();
 
 onMounted(() => {
@@ -19,7 +19,7 @@ onMounted(() => {
     <Header />
     <main class="flex justify-center px-2 pb-2 pt-6">
       <Posts v-if="!isPostOpen" />
-      <Post v-else />
+      <Post v-else-if="post" :post />
     </main>
   </div>
 </template>
