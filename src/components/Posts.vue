@@ -17,7 +17,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex w-full flex-col gap-2 md:max-w-screen-md">
     <Post v-for="post in posts" :key="post.id" :post />
   </div>
 </template>

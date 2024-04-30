@@ -18,12 +18,12 @@ const getTimeAgo = (pubDate: string) => useTimeAgo(pubDate).value;
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle>{{ post.title }}</CardTitle>
+  <Card class="overflow-clip">
+    <CardContent class="p-0"><img :src="post.image?.src" :alt="post.image?.alt" /></CardContent>
+    <CardHeader class="p-4">
+      <CardTitle class="line-clamp-2 text-lg">{{ post.title }}</CardTitle>
       <CardDescription class="truncate">{{ post.description }}</CardDescription>
     </CardHeader>
-    <CardContent><img :src="post.image?.src" :alt="post.image?.alt" /></CardContent>
-    <CardFooter>{{ getTimeAgo(post.pubDate) }}</CardFooter>
+    <CardFooter class="px-4 pb-4 text-sm">{{ getTimeAgo(post.pubDate) }}</CardFooter>
   </Card>
 </template>

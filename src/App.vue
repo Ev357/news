@@ -6,7 +6,7 @@ import Posts from '@/components/Posts.vue';
 <template>
   <div class="absolute inset-0">
     <Header />
-    <main class="p-2">
+    <main class="flex justify-center px-2 pb-2 pt-6">
       <Posts />
     </main>
   </div>
