@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import Post from '@/components/Post.vue';
+import PostCard from '@/components/PostCard.vue';
 import { useGetPosts, type Post as PostItem } from '@/composables/useGetPosts';
 
 const posts = ref(new Set<PostItem>());
@@ -18,6 +18,6 @@ onMounted(async () => {
 
 <template>
   <div class="flex w-full flex-col gap-2 md:max-w-screen-md">
-    <Post v-for="post in posts" :key="post.id" :post />
+    <PostCard v-for="post in posts" :key="post.id" :post />
   </div>
 </template>
