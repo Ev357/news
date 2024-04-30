@@ -10,7 +10,7 @@ function parsePost(postHtml: string) {
   let div = document.createElement('div');
   div.innerHTML = postHtml;
   const articleDiv: HTMLDivElement | null = div.querySelector(
-    'article[id=content] > div:nth-child(2)'
+    'article[id=content] > div:nth-child(2) > div > div'
   );
   if (!articleDiv) return;
   div = document.createElement('div');
