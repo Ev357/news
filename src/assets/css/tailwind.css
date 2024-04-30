@@ -79,4 +79,8 @@
     font-family: 'Geist';
     src: url('@/assets/fonts/Geist-Regular.woff2') format('woff2');
   }
+  .death-star {
+    background-color: #dfdbe5;
+    background-image: url('@/assets/patterns/death-star.svg');
+  }
 }

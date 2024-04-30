@@ -24,7 +24,15 @@ const getTimeAgo = (pubDate: string) => useTimeAgo(pubDate).value;
 <template>
   <button @click="$emit('openPost', post)" class="text-left">
     <Card class="overflow-clip">
-      <CardContent class="p-0"><img :src="post.image?.src" :alt="post.image?.alt" /></CardContent>
+      <CardContent class="h-96 p-0">
+        <img
+          v-if="post.image"
+          :src="post.image.src"
+          :alt="post.image.alt"
+          class="size-full object-cover"
+        />
+        <div v-else class="death-star size-full"></div>
+      </CardContent>
       <CardHeader class="p-4">
         <CardTitle class="line-clamp-2 text-lg">{{ post.title }}</CardTitle>
         <CardDescription class="truncate">{{ post.description }}</CardDescription>

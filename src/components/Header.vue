@@ -10,7 +10,9 @@ const { closePost } = usePostStore();
     <button @click="closePost" class="flex justify-start">
       <span class="i-heroicons-newspaper size-14"></span>
     </button>
-    <h1 class="flex justify-center text-3xl">News</h1>
+    <button @click="closePost">
+      <h1 class="flex justify-center text-3xl">News</h1>
+    </button>
     <ToggleMode />
   </header>
 </template>
