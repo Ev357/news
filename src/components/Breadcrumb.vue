@@ -7,8 +7,12 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb';
+import { useBreadcrumbStore } from '@/stores/breadcrumb';
 import { usePostStore } from '@/stores/post';
+import { storeToRefs } from 'pinia';
+import { useTruncate } from '@/composables/useTruncate';
 
+const { breadcrumbs } = storeToRefs(useBreadcrumbStore());
 const { closePost } = usePostStore();
 </script>
 
@@ -20,10 +24,12 @@ const { closePost } = usePostStore();
           <button @click="closePost">Home</button>
         </BreadcrumbLink>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
-      <BreadcrumbItem>
-        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-      </BreadcrumbItem>
+      <template v-for="breadcrumb in breadcrumbs" :key="breadcrumb">
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>{{ useTruncate(breadcrumb) }}</BreadcrumbPage>
+        </BreadcrumbItem>
+      </template>
     </BreadcrumbList>
   </Breadcrumb>
 </template>

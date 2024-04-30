@@ -1,8 +1,11 @@
 import { defineStore } from 'pinia';
 import { useGetPosts, type Post } from '@/composables/useGetPosts';
 import { computed, ref } from 'vue';
+import { useBreadcrumbStore } from './breadcrumb';
 
 export const usePostStore = defineStore('postStore', () => {
+  const { setBreadcrumb } = useBreadcrumbStore();
+
   // State properties
   const post = ref<Post>();
   const posts = ref(new Set<Post>());
@@ -15,6 +18,7 @@ export const usePostStore = defineStore('postStore', () => {
     post.value = undefined;
   }
   function openPost(postItem: Post) {
+    setBreadcrumb([postItem.title]);
     post.value = postItem;
   }
   async function getPosts() {
