@@ -7,7 +7,7 @@ import {
   CardContent,
   CardFooter
 } from '@/components/ui/card/index';
-import type { Post } from '@/utils/fetchPosts';
+import type { Post } from '@/composables/useGetPosts';
 import { useTimeAgo } from '@vueuse/core';
 
 defineProps<{

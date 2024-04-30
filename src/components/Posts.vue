@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import Post from '@/components/Post.vue';
-import { fetchPosts, type Post as PostItem } from '@/utils/fetchPosts';
+import { useGetPosts, type Post as PostItem } from '@/composables/useGetPosts';
 
 const posts = ref(new Set<PostItem>());
 
 onMounted(async () => {
   document.documentElement.classList.add('dark');
-  const postList = await fetchPosts();
+  const postList = await useGetPosts();
   postList.forEach((post) => {
     posts.value.add(post);
   });

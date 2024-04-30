@@ -24,7 +24,7 @@ export interface Post extends Item {
   description: string | undefined;
 }
 
-export const fetchPosts = async () => {
+export const useGetPosts = async () => {
   const parser: RSSParser<Feed, Item> = new Parser();
   const feed = await parser.parseURL('https://www.theverge.com/rss/index.xml');
 
