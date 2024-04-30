@@ -1,23 +1,14 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
 import PostCard from '@/components/PostCard.vue';
-import { useGetPosts, type Post as PostItem } from '@/composables/useGetPosts';
+import { usePostStore } from '@/stores/post';
+import { storeToRefs } from 'pinia';
 
-const posts = ref(new Set<PostItem>());
-
-onMounted(async () => {
-  document.documentElement.classList.add('dark');
-  const postList = await useGetPosts();
-  postList.forEach((post) => {
-    posts.value.add(post);
-  });
-
-  console.log(postList);
-});
+const { posts } = storeToRefs(usePostStore());
+const { openPost } = usePostStore();
 </script>
 
 <template>
   <div class="flex w-full flex-col gap-2 md:max-w-screen-md">
-    <PostCard v-for="post in posts" :key="post.id" :post />
+    <PostCard v-for="post in posts" :key="post.id" :post @open-post="openPost(post)" />
   </div>
 </template>

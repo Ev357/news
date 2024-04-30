@@ -14,16 +14,22 @@ defineProps<{
   post: Post;
 }>();
 
+const emit = defineEmits<{
+  (e: 'openPost', post: Post): void;
+}>();
+
 const getTimeAgo = (pubDate: string) => useTimeAgo(pubDate).value;
 </script>
 
 <template>
-  <Card class="overflow-clip">
-    <CardContent class="p-0"><img :src="post.image?.src" :alt="post.image?.alt" /></CardContent>
-    <CardHeader class="p-4">
-      <CardTitle class="line-clamp-2 text-lg">{{ post.title }}</CardTitle>
-      <CardDescription class="truncate">{{ post.description }}</CardDescription>
-    </CardHeader>
-    <CardFooter class="px-4 pb-4 text-sm">{{ getTimeAgo(post.pubDate) }}</CardFooter>
-  </Card>
+  <button @click="$emit('openPost', post)">
+    <Card class="overflow-clip">
+      <CardContent class="p-0"><img :src="post.image?.src" :alt="post.image?.alt" /></CardContent>
+      <CardHeader class="p-4">
+        <CardTitle class="line-clamp-2 text-lg">{{ post.title }}</CardTitle>
+        <CardDescription class="truncate">{{ post.description }}</CardDescription>
+      </CardHeader>
+      <CardFooter class="px-4 pb-4 text-sm">{{ getTimeAgo(post.pubDate) }}</CardFooter>
+    </Card>
+  </button>
 </template>
